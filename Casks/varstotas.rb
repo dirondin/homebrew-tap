@@ -1,6 +1,6 @@
 cask "varstotas" do
-  version "0.1.0"
-  sha256 "86bd676186f2ff5c3664abac0fcc5b41a31f03ec88d64f433cd1df6afc4e9f4c"
+  version "0.2.0"
+  sha256 "146a32ff2234fd49fe1c934c447f097321af2bb5633def6ebeda4446583aaf66"
 
   url "https://github.com/dirondin/varstotas/releases/download/release-#{version}/Varstotas-#{version}-macos-universal.dmg"
   name "Varstotas"
@@ -18,14 +18,14 @@ cask "varstotas" do
   app "Varstotas.app"
 
   zap trash: [
-    "~/.varstotas",
     "~/Library/Application Support/Varstotas",
     "~/Library/Saved Application State/dev.varstotas.app.savedState",
   ]
 
   caveats <<~EOS
     Varstotas is not notarized by Apple, so macOS blocks its first launch.
-    Right-click Varstotas in Applications → Open → Open (once), or run:
+    Open it once, then System Settings → Privacy & Security → Open Anyway
+    (macOS 14 and earlier: right-click Varstotas in Applications → Open → Open), or run:
       xattr -dr com.apple.quarantine /Applications/Varstotas.app
   EOS
 end
